@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Single Review Details</title>
+    </head>
+    <body>
+        <h1>{{review.username}}</h1>
+        <h2>{{review.review_text}}</h2>
+        <h3>{{review.rating}}</h3>
+        {% if is_liked %}
+            <p>You liked this review.</p>
+        {% else %}
+            <form action="/list-reviews/liked_id/" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="liked_id" value="{{ review.id }}">
+                <button>Like</button>
+            </form>
+         {% endif %}
+    </body>
+</html>
+
