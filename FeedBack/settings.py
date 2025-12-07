@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['', '127.0.0.1', 'localhost', "*"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "*"]
 
 
 # Application definition
@@ -83,6 +83,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.parse("postgresql://postgres_ohow_user:Trwb23npvE5OiBZ8GaJ84JI3QT2nJugc@dpg-d4q26ashg0os73810cig-a.oregon-postgres.render.com/postgres_ohow")
 
 
 # Password validation
